@@ -4,6 +4,7 @@ import java.util.Map;
 
 import models.Cube;
 import models.Rectangle;
+import models.Prism;
 import spark.ModelAndView;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 
@@ -37,6 +38,9 @@ public class App {
             if (myRectangle.getShape()) {
                 Cube myCube = new Cube(myRectangle);
                 model.put("myCube", myCube);
+            } else {
+                Prism myPrism = new Prism(myRectangle);
+                model.put("myPrism", myPrism);
             }
             return new ModelAndView(model, "rectangle-detail.hbs"); //render a detail page instead of redirecting to home.
         }, new HandlebarsTemplateEngine());
